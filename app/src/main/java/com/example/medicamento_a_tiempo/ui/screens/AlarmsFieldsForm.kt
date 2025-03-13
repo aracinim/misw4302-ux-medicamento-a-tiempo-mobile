@@ -4,7 +4,9 @@ package com.example.medicamento_a_tiempo.ui.screens
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Menu
@@ -63,7 +65,7 @@ fun AlarmsFieldsForm(navController: NavController) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* Acción para perfil de usuario */ }) {
+                    IconButton(onClick = { navController.navigate("notificacion") }) {
                         Icon(Icons.Default.Person, contentDescription = "Perfil")
                     }
                 }
@@ -73,10 +75,11 @@ fun AlarmsFieldsForm(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Spacer(modifier = Modifier.height(75.dp))
+            Spacer(modifier = Modifier.height(70.dp))
             // Row 1: Medicamento
             OutlinedTextField(
                 value = medicamento,
@@ -153,8 +156,7 @@ fun AlarmsFieldsForm(navController: NavController) {
                     label = { Text("Tiempo") },
                     singleLine = true,
                     supportingText = { Text("Horas") },
-                    modifier = Modifier.weight(1f),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                    modifier = Modifier.weight(1f)
                 )
             }
 
@@ -287,7 +289,7 @@ fun AlarmsFieldsForm(navController: NavController) {
             }
 
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             // Row 7: Enviar & Cancelar
             Row(
                 modifier = Modifier.width(200.dp),
@@ -307,7 +309,7 @@ fun AlarmsFieldsForm(navController: NavController) {
                     Text("Cancelar")
                 }
             }
-
+            Spacer(modifier = Modifier.height(16.dp))
             if (mostrarDialogoGuardar) {
                 AlertDialog(
                     onDismissRequest = { mostrarDialogoGuardar = false },
