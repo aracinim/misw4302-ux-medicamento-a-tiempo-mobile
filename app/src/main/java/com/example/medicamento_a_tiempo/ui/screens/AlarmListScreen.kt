@@ -34,7 +34,7 @@ fun AlarmListScreen(navController: NavController) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* Acción para perfil de usuario */ }) {
+                    IconButton(onClick = { navController.navigate("notificacion") }) {
                         Icon(Icons.Default.Person, contentDescription = "Perfil")
                     }
                 }
@@ -97,13 +97,16 @@ fun AlarmListScreen(navController: NavController) {
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 4.dp),
+                            .padding(vertical = 4.dp)
+                            .clickable {
+                                navController.navigate("manage_edit")
+                            },
                         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                     ) {
                         Text(
                             text = alarm,
                             modifier = Modifier.padding(16.dp),
-                            style = MaterialTheme.typography.bodyLarge
+                            style = MaterialTheme.typography.bodyLarge,
                         )
                     }
                 }

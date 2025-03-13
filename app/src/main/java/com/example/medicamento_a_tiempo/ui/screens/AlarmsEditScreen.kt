@@ -32,7 +32,7 @@ import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AlarmsFieldsForm(navController: NavController) {
+fun AlarmsEditScreen(navController: NavController) {
     var medicamento by remember { mutableStateOf("Acetaminofem") }
     var dosis by remember { mutableStateOf("1") }
     var cadaTiempo by remember { mutableStateOf("12") }
@@ -58,7 +58,7 @@ fun AlarmsFieldsForm(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Crear Alarma Nuevo Medicamento", textAlign = TextAlign.Center) },
+                title = { Text("Editar Medicamento", textAlign = TextAlign.Center) },
                 navigationIcon = {
                     IconButton(onClick = {}) {
                         Icon(Icons.Default.Menu, contentDescription = "Menú")
