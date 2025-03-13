@@ -46,7 +46,7 @@ fun AlarmListScreen(navController: NavController) {
                 },
                 actions = {
                     IconButton(
-                        onClick = { /* Acción para perfil de usuario */ },
+                        onClick = { navController.navigate("notificacion") },
                         modifier = Modifier
                             .size(40.dp)
                     ) {
@@ -101,7 +101,7 @@ fun AlarmListScreen(navController: NavController) {
                             onClick = {
                                 selectedMedicamento = medicamento
                                 expanded = false
-                                navController.navigate("login") // REDIRECCIÓN
+                                navController.navigate("manage_alarm")
                             }
                         )
                     }
@@ -144,7 +144,7 @@ fun AlarmListScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(vertical = 8.dp)
                                 .clickable {
-                                    navController.navigate("login") // REDIRECCIÓN
+                                    navController.navigate("manage_edit")
                                 }
                                 .fillMaxWidth(),
                             style = MaterialTheme.typography.bodyLarge
