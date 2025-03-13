@@ -73,6 +73,7 @@ fun AlarmListScreen(navController: NavController) {
                             text = { Text(medicamento) },
                             onClick = {
                                 selectedMedicamento = medicamento
+                                navController.navigate("manage_alarm")
                                 expanded = false
                             }
                         )

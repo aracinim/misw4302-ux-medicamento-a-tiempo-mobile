@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.medicamento_a_tiempo.ui.screens.AlarmListScreen
+import com.example.medicamento_a_tiempo.ui.screens.AlarmsFieldsForm
 import com.example.medicamento_a_tiempo.ui.screens.LoginScreen
 import com.example.medicamento_a_tiempo.ui.screens.RegisterScreen
 
@@ -14,5 +15,6 @@ fun NavigationGraph(navController: NavHostController) {
         composable("login") { LoginScreen(navController) }
         composable("register") { RegisterScreen(navController) }
         composable("alarm_list") { AlarmListScreen(navController) }
+        composable("manage_alarm") { AlarmsFieldsForm(navController) }
     }
 }
