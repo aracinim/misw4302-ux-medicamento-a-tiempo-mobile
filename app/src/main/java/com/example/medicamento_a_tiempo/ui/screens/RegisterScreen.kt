@@ -1,14 +1,20 @@
 package com.example.medicamento_a_tiempo.ui.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.sharp.Close
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.medicamento_a_tiempo.R
@@ -44,13 +50,6 @@ fun RegisterScreen(navController: NavController) {
             onValueChange = { email = it },
             label = { Text("Usuario o Correo") },
             singleLine = true,
-            trailingIcon = {
-                if (email.isNotEmpty()) {
-                    IconButton(onClick = { email = "" }) {
-                        Icon(imageVector = Icons.Default.Clear, contentDescription = "Borrar")
-                    }
-                }
-            },
             modifier = Modifier.width(290.dp)
         )
 
@@ -63,13 +62,6 @@ fun RegisterScreen(navController: NavController) {
             onValueChange = { password = it },
             label = { Text("Contraseña") },
             singleLine = true,
-            trailingIcon = {
-                if (password.isNotEmpty()) {
-                    IconButton(onClick = { password = "" }) {
-                        Icon(imageVector = Icons.Default.Clear, contentDescription = "Borrar")
-                    }
-                }
-            },
             modifier = Modifier.width(290.dp)
         )
 
@@ -82,13 +74,6 @@ fun RegisterScreen(navController: NavController) {
             onValueChange = { confirmPassword = it },
             label = { Text("Repetir Contraseña") },
             singleLine = true,
-            trailingIcon = {
-                if (confirmPassword.isNotEmpty()) {
-                    IconButton(onClick = { confirmPassword = "" }) {
-                        Icon(imageVector = Icons.Default.Clear, contentDescription = "Borrar")
-                    }
-                }
-            },
             modifier = Modifier.width(290.dp)
         )
 
@@ -101,7 +86,8 @@ fun RegisterScreen(navController: NavController) {
             onClick = { showDialog = true }, // Muestra el pop-up al registrar
             modifier = Modifier.size(107.dp, 40.dp)
         ) {
-            Text("Registrar")
+            Text("Registrar", fontWeight =  FontWeight.Medium,
+                style = MaterialTheme.typography.labelLarge)
         }
 
         Spacer(modifier = Modifier.height(25.dp))
@@ -110,7 +96,8 @@ fun RegisterScreen(navController: NavController) {
             onClick = { navController.navigate("login") },
             colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.onSecondaryContainer)
         ) {
-            Text("Ir al Login")
+            Text("Ir al Login", fontWeight =  FontWeight.Medium,
+                style = MaterialTheme.typography.labelLarge)
         }
     }
 
