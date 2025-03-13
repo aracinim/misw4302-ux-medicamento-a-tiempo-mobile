@@ -8,9 +8,10 @@ import androidx.compose.runtime.Composable
 private val LightColorScheme = lightColorScheme(
     primary = androidx.compose.ui.graphics.Color(Color.parseColor("#39608F")),
     secondary = androidx.compose.ui.graphics.Color(Color.parseColor("#366756")),
+    tertiary = androidx.compose.ui.graphics.Color(Color.parseColor("#8FD2D0")),
     background = androidx.compose.ui.graphics.Color.White,
     error = androidx.compose.ui.graphics.Color(Color.parseColor("#811D25")),
-    onSurface = androidx.compose.ui.graphics.Color(Color.parseColor("#7D7D7D")),
+    onSurface = androidx.compose.ui.graphics.Color(Color.parseColor("#1B1B1C")),
 )
 
 @Composable
