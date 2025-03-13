@@ -3,8 +3,10 @@ package com.example.medicamento_a_tiempo.ui.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -19,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -58,15 +61,34 @@ fun AlarmsEditScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Editar Medicamento", textAlign = TextAlign.Center) },
+                title = {
+                    Text(
+                        "Editar Alarma",
+                        style = MaterialTheme.typography.titleLarge,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth().padding(50.dp)
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = {}) {
                         Icon(Icons.Default.Menu, contentDescription = "Menú")
                     }
                 },
                 actions = {
-                    IconButton(onClick = { navController.navigate("notificacion") }) {
-                        Icon(Icons.Default.Person, contentDescription = "Perfil")
+                    IconButton(
+                        onClick = { navController.navigate("notificacion") },
+                        modifier = Modifier
+                            .size(40.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(20.dp)
+                                .border(2.dp, MaterialTheme.colorScheme.onSurface, CircleShape),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(Icons.Default.Person, contentDescription = "Perfil", tint = Color.Black)
+                        }
+
                     }
                 }
             )
@@ -74,12 +96,12 @@ fun AlarmsEditScreen(navController: NavController) {
     ) { padding ->
         Column(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
+                .padding(padding)
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.CenterHorizontally // 🔹 Centra horizontalmente
         ) {
-            Spacer(modifier = Modifier.height(70.dp))
             // Row 1: Medicamento
             OutlinedTextField(
                 value = medicamento,
