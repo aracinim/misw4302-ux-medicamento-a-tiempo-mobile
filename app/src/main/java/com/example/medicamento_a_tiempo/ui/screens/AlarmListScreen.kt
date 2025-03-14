@@ -69,11 +69,11 @@ fun AlarmListScreen(navController: NavController) {
                 .fillMaxSize()
                 .padding(padding)
                 .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally // 🔹 Centra horizontalmente
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(Modifier.height(50.dp))
             Box(
-                modifier = Modifier.fillMaxWidth().wrapContentWidth(Alignment.CenterHorizontally) // 🔹 Centra horizontalmente
+                modifier = Modifier.fillMaxWidth().wrapContentWidth(Alignment.CenterHorizontally)
             ) {
                 OutlinedTextField(
                     value = selectedMedicamento,
@@ -101,7 +101,7 @@ fun AlarmListScreen(navController: NavController) {
                             onClick = {
                                 selectedMedicamento = medicamento
                                 expanded = false
-                                navController.navigate("manage_alarm")
+                                navController.navigate("manage_alarm") // REDIRECCIÓN
                             }
                         )
                     }
@@ -113,7 +113,7 @@ fun AlarmListScreen(navController: NavController) {
             Text(
                 "Listado de Medicamentos",
                 style = MaterialTheme.typography.labelSmall,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 55.dp)
+                modifier = Modifier.width(280.dp).padding(horizontal = 10.dp)
             )
 
             Spacer(modifier = Modifier.height((7 * 25).dp))
@@ -122,7 +122,7 @@ fun AlarmListScreen(navController: NavController) {
                 "Listado de Alarmas",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(horizontal = 50.dp).fillMaxWidth()
+                modifier = Modifier.width(280.dp)
             )
 
             Spacer(modifier = Modifier.height(25.dp))
@@ -131,8 +131,7 @@ fun AlarmListScreen(navController: NavController) {
             Card(
                 modifier = Modifier
                     .size(280.dp, 136.dp)
-                    .fillMaxWidth()
-                    .wrapContentWidth(Alignment.CenterHorizontally), // 🔹 Centra la Card
+                    .wrapContentWidth(Alignment.CenterHorizontally),
                 colors = CardDefaults.cardColors(containerColor = Color(0xFFF1EDEC))
             ) {
                 Column(
@@ -144,7 +143,7 @@ fun AlarmListScreen(navController: NavController) {
                             modifier = Modifier
                                 .padding(vertical = 8.dp)
                                 .clickable {
-                                    navController.navigate("manage_edit")
+                                    navController.navigate("manage_edit") // REDIRECCIÓN
                                 }
                                 .fillMaxWidth(),
                             style = MaterialTheme.typography.bodyLarge
